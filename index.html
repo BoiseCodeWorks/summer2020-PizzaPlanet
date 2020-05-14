@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Pizza-Planet</title>
+</head>
+
+<body>
+    <header class="container-fluid bg-danger text-center text-light">
+        <div class="row">
+            <div class="col m-3">
+                <h1><i class="fas fa-pizza-slice fa-spin ml-2"></i>Pizza Planet<i
+                        class="fas fa-pizza-slice fa-spin mr-2"></i>
+                </h1>
+            </div>
+        </div>
+    </header>
+    <main class="container-fluid">
+        <div class="row">
+            <div class="col mt-3 ml-3">
+                <form class="form-inline" onsubmit="app.pizzaController.newPizza(event)">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId"
+                            placeholder="Name..." required>
+                        <button type="submit" class="btn btn-outline-success ml-1">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-5" id="pizzas">
+            <div class="col-3">
+                <div class="card shadow">
+                    <div class="card-body d-flex flex-column">
+                        <i class="fas fa-times text-danger align-self-end action"
+                            onclick="app.pizzaController.deletePizza()"></i>
+                        <h4 class="card-title">Name: XXX</h4>
+                        <ul class="pl-3">
+                            <li>Topping
+                                <i class="fas fa-times text-danger action"
+                                    onclick="removeTopping(pizzaId, toppingIndex)"></i>
+                            </li>
+                            <li>Topping
+                                <i class="fas fa-times text-danger action"
+                                    onclick="removeTopping(pizzaId, toppingIndex)"></i>
+                            </li>
+                            <li>Topping
+                                <i class="fas fa-times text-danger action"
+                                    onclick="removeTopping(pizzaId, toppingIndex)"></i>
+                            </li>
+                        </ul>
+                        <form onsubmit="app.pizzaController.addTopping(event, pizzaId)">
+                            <div class="form-group d-flex">
+                                <input type="text" class="form-control" name="topping" id="topping"
+                                    aria-describedby="helpId" placeholder="Topping..." required>
+                                <button type="submit" class="btn btn-outline-success ml-1"><i
+                                        class="fas fa-plus "></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="container-fluid bg-dark">
+        <div class="row">
+            <div class="col text-center text-light">
+                <p>made with love by codeworks</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/68f8809237.js" crossorigin="anonymous"></script>
+    <script src="app/main.js" type="module"></script>
+</body>
+
+</html>
