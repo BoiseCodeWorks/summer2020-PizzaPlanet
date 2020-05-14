@@ -2,7 +2,7 @@ import { generateId } from "../Utils.js"
 
 export default class Pizza {
     constructor(data) {
-        this.id = generateId();
+        this.id = data.id || generateId();
         this.name = data.name
         /**
          * @type {String[]}
@@ -40,7 +40,7 @@ export default class Pizza {
             template += /*html*/`
             <li>${topping}
                 <i class="fas fa-times text-danger action"
-                    onclick="app.pizzasController.removeTopping('${this.id}', ${index})"></i>
+                    onclick="app.pizzasController.deleteTopping('${this.id}', ${index})"></i>
             </li>
             `
         })
